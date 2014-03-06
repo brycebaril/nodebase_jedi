@@ -115,12 +115,6 @@
           </section>
 
           <section class="starwars" data-background="img/bgstars.png">
-            <h2>LevelDOWN</h2>
-            <p>LevelDOWN is the specific interface layer below the LevelUP library which provides a consistent JS interface.</p>
-            <p>Lots of options and easy to add new LevelDOWN options if the Database supports the right primitives.</p>
-          </section>
-
-          <section class="starwars" data-background="img/bgstars.png">
             <h2>LevelDB</h2>
             <p>
               Right now the "canonical" NodeBases back-end is LevelDB.
@@ -135,10 +129,38 @@
               <li>batch (put/del)</li>
               <li>ordered iterator</li>
             </ul>
-          </section class="starwars" data-background="img/bgstars.png">
+          </section>
+
+          <section class="starwars" data-background="img/bgstars.png">
+            <h2>LevelUP/LevelDOWN</h2>
+            <p><a href="http://npm.im/levelup">LevelUP</a> provides a consistent JS interface to Node.</p>
+            <p><a href="http://npm.im/leveldown">LevelDOWN</a> is the wrapper interface for DB engines.</p>
+            <p>Lots of options:</p>
+            <ul>
+              <li>LevelDB</li>
+              <li>HyperLevelDB</li>
+              <li>RocksDB</li>
+              <li>LMDB</li>
+              <li>IndexedDB (browser!)</li>
+              <li>... and more!</li>
+            </ul>
+          </section>
+
+          <section class="starwars" data-background="img/bgstars.png">
+            <h2>How to get it</h2>
+            <p>Easiest: <pre>npm install level</pre></p>
+            <p><a href="http://npm.im/level">level</a> provides a LevelUP/LevelDOWN bundle ready to use.</p>
+            <ul>
+            <li><a href="http://npm.im/level-hyper">level-hyper</a> HyperLevelDB</li>
+            <li><a href="http://npm.im/level-lmdb">level-lmdb</a> LMDB</li>
+            <li><a href="http://npm.im/level-rocksdb">level-rocksdb</a> RocksDB</li>
+            <li><a href="http://npm.im/level-mem">level-mem</a> In-memory</li>
+            <li><a href="http://npm.im/level-js">level-js</a> Browserified</li>
+            </ul>
+          </section>
+
           <section id="vanilla" class="starwars" data-background="img/bgstars.png">
             <h2>How to use it.</h2>
-            <p><pre>npm install level</pre></p>
             <pre><code class="example" data-trim contenteditable>
 // var level = require("level")
 var db = level("./vanilla")
@@ -160,7 +182,6 @@ db.put("wow", "mom", function (err) {
             <p>
               Using <a href="http://npm.im/level-sublevel"><code>level-sublevel</code></a> to add namespaces. (Think 'tables')
             </p>
-            <p><pre>npm install level-sublevel</pre></p>
             <pre><code class="example" data-trim contenteditable>
 // var level = require("level")
 // var Sublevel = require("level-sublevel")
@@ -182,7 +203,6 @@ stuff.put("wow", "mom", function (err) {
             <p>
               Using <a href="http://npm.im/level-version"><code>level-version</code></a> to make writes versioned.
             </p>
-            <p><pre>npm install level-version</pre></p>
             <pre><code class="example" data-trim contenteditable>
 // var level = require("level")
 // var Sublevel = require("level-sublevel")
@@ -206,11 +226,9 @@ things.put("wow", "mom", {version: 0}, function (err) {
         <section>
           <section class="starwars" data-background="img/bgstars.png">
             <h2>Case Study: TimestreamDB</h2>
-            <p>
           </section>
 
           <section id="tsdb" class="starwars" data-background="img/bgstars.png">
-            <p><pre>npm install timestreamdb</pre></p>
             <pre><code class="example" data-trim contenteditable>
 // var level = require("level")
 // var TimestreamDB = require("timestreamdb")
