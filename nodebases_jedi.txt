@@ -47,20 +47,24 @@ Light-side
     * fairly stable, but does change, e.g. WriteStream removal, start/end -> gt/lt/gte/lte
 
 Dark-side
-  * incomplete experiments. Competing efforts, Land rush, lots of stakes in the ground...
+  * incomplete experiments
+  * Competing efforts
+  * Land rush, lots of stakes in the ground...
   * lack of production (scale/non-test) use
   * over-promise
-  * combinatorial compat issues
+  * combinatorial compatibility issues
     * maintenance of a live, loosely-coupled system
     * triggered issues when combining separate modules
 
-Call to action
+How do we get to the promised land?
   * Use it, try it, try to push limits
   * Be a good citizen: label project status, what you've done with it, similar projects that might fight use-case specifics better
-  * It needs to be easier
+  * More generic documentation
   * Need good answers for FAQs
   * More polish in general
   * Legit user-case comparisons w/ established competitors
+  * Rock-solid replication
+  * Published performance metrics
 
 "So can I just replace MongoDB(MySQL, CouchDB, etc.) with LevelDB?"
 "How do I scale this horizontally?" aka cross-process
