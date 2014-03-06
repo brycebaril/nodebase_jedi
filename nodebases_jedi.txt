@@ -1,0 +1,89 @@
+The Path of the NodeBases Jedi
+
+<star wars css transform?>
+
+NodeBases in 3 minutes:
+
+Right now the "canonical" NodeBases back-end is LevelDB.
+It is a simple key-value store with 5 primitives:
+  * get
+  * put
+  * delete
+  * batch
+  * ranged read
+
+How to use it:
+
+npm install level
+
+var db = require("level")
+
+Let's add namespaces ('e.g. table-like things')
+`sublevel`
+
+Let's make one of the tables auto-versioning:
+`level-version`
+
+NodeBases: do for databases what npm did for Node.js applications.
+  Small, composable pieces.
+  Rather than choosing a large swiss army knife of databases, use npm to combine features you need into a purpose-built database.
+
+
+Wikipedia Hype Cycle
+
+(for module authors)
+
+Light-side
+  * The whole point to nodebases is it uses nodey primatives.
+    * match convention as much as possible: follow levelup's lead: get(key, options, callback), streams
+      * avoid promises.
+      * your interface should attempt to be transparent (multilevel, level-version, sublevel)
+    * put most complex behavior, really as much as possible, in separate modules
+    * e.g. timestream. timestreamdb = level-version + timestream
+  * ensuring (and testing) compatability with other core nodebases modules
+    * this is a lot of (not all that fun) work
+    * need better cataloging and awareness of the efforts of others
+  * keep up-to-date with levelup/leveldown core
+    * fairly stable, but does change, e.g. WriteStream removal, start/end -> gt/lt/gte/lte
+
+Dark-side
+  * incomplete experiments. Competing efforts, Land rush, lots of stakes in the ground...
+  * lack of production (scale/non-test) use
+  * over-promise
+  * combinatorial compat issues
+    * maintenance of a live, loosely-coupled system
+    * triggered issues when combining separate modules
+
+Call to action
+  * Use it, try it, try to push limits
+  * Be a good citizen: label project status, what you've done with it, similar projects that might fight use-case specifics better
+  * It needs to be easier
+  * Need good answers for FAQs
+  * More polish in general
+  * Legit user-case comparisons w/ established competitors
+
+"So can I just replace MongoDB(MySQL, CouchDB, etc.) with LevelDB?"
+"How do I scale this horizontally?" aka cross-process
+  e.g. "Does this work with the `cluster` module?"
+"Is my data safe?"
+"Does it support locks? CAS? Feature X?"
+  Sometimes it is safe to say: "there may be a module for that/you could write a module..."
+  But sometimes it completely depends on the backing store.
+"Aren't you re-implementing the wheel?"
+
+
+TimestreamDB
+Most complex logic implemented on top of objectMode streams: timestream
+Needed time-ordered value streams: wrote level-version
+Wanted custom data expiration logic: level-gc
+Combination: timestreamdb
+
+Because of NodeBases:
+  * Works in the browser
+  * (theoretically) Compatible with hundreds of other level features:
+    * namespacing (level-sublevel)
+    * livestreaming (level-live-stream)
+    * map-reduce
+    * multilevel
+    * secondary indexes
+    * replication (level-replicate)

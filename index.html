@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>reveal.js - The HTML Presentation Framework</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/starwars.css">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
+    <script src="lib/js/jquery-2.1.0.min.js"></script>
+    <script src="js/level.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Path of the NodeBases Jedi</h1>
+          <h3>Something something something StarWars.</h3>
+          <p>
+            <small>Created by <a href="http://brycebaril.com">Bryce B. Baril</a> / <a href="http://twitter.com/brycebaril">@brycebaril</a></small>
+          </p>
+        </section>
+
+        <section class="intro" data-background="#000" data-transition="fade" data-transition-speed="slow">
+          <p>A short time ago, in a continent</p>
+          <p>far, far away....</p>
+        </section>
+
+<!--
+        <section class="starwars" data-background="img/bgstars.png" data-transition="zoomout">
+          <h1>STAR WARS<sub>A New Database Paradigm</sub></h1>
+        </section>
+-->
+        <section class="starwars" data-background="img/bgstars.png" data-transition="zoomout" data-transition-speed="slow">
+          <h1>NODE <w>BASES</w><sub>A New Database Paradigm</sub></h1>
+        </section>
+
+        <section id="epVI" class="starwars crawl stretch" data-background="img/bgstars.png" data-transition="none">
+          <div id="epVI-titles"><div id="epVI-content">
+            <episode>Episode VI</episode>
+            <h2>PATH OF THE JEDI</h2>
+            <p>&nbsp;</p>
+            <p>Node Developer has returned to
+            his trusty runtime Node.js in
+            an attempt to rescue his
+            company Async IO from the
+            clutches of the vile database
+            Mongo the DB.</p>
+            <p>&nbsp;</p>
+
+            <p>Little does Node know that the
+            DATABASE COMMUNITY has secretly
+            begun construction on a new
+            monolithic database even
+            more convoluted and packed
+            with unnecessary features
+            than Enterprise Oracle.</p>
+            <p>&nbsp;</p>
+
+            <p>When completed, this ultimate
+            weapon will spell certain doom
+            for the small band of rebels
+            struggling to keep their sanity
+            in check...</p>
+          </div></div>
+        </section>
+
+        <section>
+          <section class="starwars" data-background="img/bgstars.png">
+            <h2>NodeBases in 5 minutes</h2>
+          </section>
+
+          <section class="starwars" data-background="img/bgstars.png">
+            <h2>NodeBases Goal:</h2>
+            <h3>Do for databases what NPM did for Node.js applications.</h3>
+            <p>
+              Small, composable pieces of functionality.
+            </p>
+            <p>
+              Hundreds of modules already out there!
+            </p>
+          </section>
+
+          <section class="starwars" data-background="img/bgstars.png">
+            <h2>LevelDOWN</h2>
+            <p>LevelDOWN is the specific interface layer below the LevelUP library which provides a consistent JS interface.</p>
+            <p>Lots of options and easy to add new LevelDOWN options if the Database supports the right primitives.</p>
+          </section>
+
+          <section class="starwars" data-background="img/bgstars.png">
+            <h2>LevelDB</h2>
+            <p>
+              Right now the "canonical" NodeBases back-end is LevelDB.
+            </p>
+            <p>
+            It is a simple key-value store with 5 primitives:
+            </p>
+            <ul>
+              <li>get</li>
+              <li>put</li>
+              <li>del</li>
+              <li>batch (put/del)</li>
+              <li>ordered iterator</li>
+            </ul>
+          </section class="starwars" data-background="img/bgstars.png">
+          <section id="vanilla" class="starwars" data-background="img/bgstars.png">
+            <h2>How to use it.</h2>
+            <p><pre>npm install level</pre></p>
+            <pre><code class="example" data-trim contenteditable>
+// var level = require("level")
+var db = level("./vanilla")
+
+// put  key    value
+db.put("wow", "mom", function (err) {
+  if (err) return alert("IO Error!?", err)
+
+  // get  key
+  db.get("wow", function (err, value) {
+    if (err) return alert("Not found?")
+    $("#vanilla .results").text("value: " + value)
+  })
+})
+            </code></pre>
+            <p class="results">(press "r" to run example)</p>
+          </section>
+          <section id="namespaced" class="starwars" data-background="img/bgstars.png">
+            <p>
+              Using <a href="http://npm.im/level-sublevel"><code>level-sublevel</code></a> to add namespaces. (Think 'tables')
+            </p>
+            <p><pre>npm install level-sublevel</pre></p>
+            <pre><code class="example" data-trim contenteditable>
+// var level = require("level")
+// var Sublevel = require("level-sublevel")
+var db = Sublevel(level("./namespaced"))
+var stuff = db.sublevel("stuff")
+var things = db.sublevel("things")
+
+stuff.put("wow", "mom", function (err) {
+  things.put("wow", "zzz", function (err) {
+    stuff.get("wow", function (err, value) {
+      $("#namespaced .results").text("value: " + value)
+    })
+  })
+})
+            </code></pre>
+            <p class="results">(press "r" to run example)</p>
+          </section>
+          <section id="versioned" class="starwars" data-background="img/bgstars.png">
+            <p>
+              Using <a href="http://npm.im/level-version"><code>level-version</code></a> to make writes versioned.
+            </p>
+            <p><pre>npm install level-version</pre></p>
+            <pre><code class="example" data-trim contenteditable>
+// var level = require("level")
+// var Sublevel = require("level-sublevel")
+// var Version = require("level-version")
+var db = Sublevel(level("./versioned"))
+var things = Version(db.sublevel("things"))
+
+things.put("wow", "mom", {version: 0}, function (err) {
+  things.put("wow", "zzz", function (err) {
+    things.get("wow", {version: 0}, function (err, value, version) {
+      $("#versioned .results")
+        .text("value: " + value + " version: " + version)
+    })
+  })
+})
+            </code></pre>
+            <p class="results">(press "r" to run example)</p>
+          </section>
+        </section>
+
+        <section>
+          <section class="starwars" data-background="img/bgstars.png">
+            <h2>Case Study: TimestreamDB</h2>
+            <p>
+          </section>
+
+          <section id="tsdb" class="starwars" data-background="img/bgstars.png">
+            <p><pre>npm install timestreamdb</pre></p>
+            <pre><code class="example" data-trim contenteditable>
+// var level = require("level")
+// var TimestreamDB = require("timestreamdb")
+var db = TimestreamDB(level("./tsdb", {valueEncoding: "json"}))
+
+var count = 0
+var i = setInterval(function () {
+  if (++count > 30) {
+    clearInterval(i)
+    db.ts("foo").mean().tail(function (r) {
+      $("#tsdb .results").text(r.value)
+    })
+  }
+  db.put("foo", {id: count, value: Math.random()})
+}, 10)
+            </code></pre>
+            <p class="results">(press "r" to run example)</p>
+          </section>
+
+          <section id="slidetimes" class="starwars" data-background="img/bgstars.png">
+            <pre><code data-trim>
+var db = level("slidetimer", {valueEncoding: "json"})
+window.SlideTimeDB = TimestreamDB(db)
+function recordSlide(event) {
+  SlideTimeDB.put("slide", {slide: event.indexh + "," + event.indexv})
+}
+            </code></pre>
+            <pre><code class="example javascript" data-trim contenteditable>
+var count = SlideTimeDB.ts("slide")
+  .count()
+  .rename("slide", "count")
+
+var avg = SlideTimeDB.ts("slide")
+  .elapsed()
+  .numbers()
+  .mean()
+  .divide(1000)
+  .round(1)
+
+count.join(avg).tail(function(r) {
+  $("#numslides").text(r.count)
+  $("#avgtime").text(r.elapsed)
+})
+            </code></pre>
+            <p>Bryce, you've visited <span id="numslides">???</span> slides at an average of:</p>
+            <p><span id="avgtime">???</span> seconds per slide.</p>
+          </section>
+        </section>
+
+        <section>
+          <section class="starwars" data-background="img/bgstars.png">
+            <h2>Hype Cycle</h2>
+            <h3><a href="http://http://en.wikipedia.org/wiki/Hype_cycle">http://en.wikipedia.org/wiki/Hype_cycle</a></h3>
+            <img id="hype_cycle" src="img/hype_cycle.png">
+          </section>
+        </section>
+
+        <section>
+
+          <section>
+            <ul>
+              <li>Use Nodey primitives
+                <ul>
+                  <li>Follow levelup's conventions: e.g. get(key, options, callback), streams</li>
+                  <li>Avoid promises</li>
+                  <li>Attempt to make your interface transparent</li>
+                </ul>
+              </li>
+              <li>Put complex behavior in separate modules</li>
+
+
+            </ul>
+          </section>
+
+        </section>
+
+
+        <section>
+
+          <section id="epII" class="starwars crawl" data-background="img/bgstars.png" data-transition="none">
+            <div id="epII-titles"><div id="epII-content">
+              <episode>Episode II</episode>
+              <h2>ATTACK OF THE CODEROT</h2>
+              <p>&nbsp;</p>
+              <p>There is unrest in the NodeBases
+              Community. Several thousand node
+              developers have declared their
+              intentions to use Enterprise
+              Databases.</p>
+              <p>&nbsp;</p>
+
+              <p>This separatist movement,
+              under the leadership of the
+              mysterious Count Coderot, has
+              made it difficult for the limited
+              number of NodeBase Knights to
+              maintain compatability and
+              order in NPM.</p>
+              <p>&nbsp;</p>
+
+              <p>Senator Vagg, the founder of
+              the NodeBases Community, is returning
+              to the NPM Senate to vote
+              on the critical issue of creating
+              and ARMY OF NODE DEVELOPERS
+              to assist with the overwhelmed
+              Jedi....</p>
+            </div></div>
+          </section>
+
+        </section>
+
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+    <script>
+      window.SlideTimeDB = TimestreamDB(level("slidetimer", {valueEncoding: "json"}))
+      function recordSlide(event) {
+        SlideTimeDB.put("slide", {slide: event.indexh + "," + event.indexv})
+      }
+
+      function activateCrawl(event) {
+        if (event.currentSlide.id == "epVI") {
+          $("#epVI-titles").addClass("titles")
+          $("#epVI-content").addClass("titlescontent")
+          $("#epVI").css("top", "-6em")
+          $("#epVI").css("height", "10em")
+        }
+        if (event.currentSlide.id == "epII") {
+          $("#epII-titles").addClass("titles")
+          $("#epII-content").addClass("titlescontent")
+          // Ugghhh... Why this one and not the other?
+          $("#epII").css("top", "-6em")
+          $("#epII").css("height", "10em")
+        }
+      }
+      Reveal.addEventListener("ready", activateCrawl)
+      Reveal.addEventListener("slidechanged", activateCrawl)
+      Reveal.addEventListener("slidechanged", recordSlide)
+
+      function executeExample() {
+        var id = Reveal.getCurrentSlide().id
+        if (!id) return
+        var example = $("#" + id + " .example")
+        if (!example || !example.text()) return
+        //console.log(example.text())
+        eval(example.text())
+      }
+      Reveal.configure({
+        keyboard: {
+          // "r" for "run example"
+          82: executeExample
+        }
+      })
+
+    </script>
+
+  </body>
+</html>

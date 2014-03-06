@@ -1,0 +1,200 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
+section.intro {
+  text-align: left;
+  color: rgb(75, 213, 238);
+  padding-left: 6em !important;
+}
+
+.starwars {
+  color: rgb(229, 177, 58);
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+}
+
+.starwars h2, .starwars h3 {
+  color: rgb(229, 177, 58);
+}
+
+.starwars h1 {
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+  position: absolute;
+  width: 2.8em;
+  left: 50%;
+  top: -1em;
+  /*font-size: 10em;*/
+  text-align: center;
+  margin-left: -1.3em;
+  line-height: 0.8em;
+  letter-spacing: -0.05em;
+  color: #000;
+  text-shadow: -2px -2px 0 rgb(229, 177, 58), 2px -2px 0 rgb(229, 177, 58), -2px 2px 0 rgb(229, 177, 58), 2px 2px 0 rgb(229, 177, 58);
+  z-index: 1;
+  -webkit-animation: logo 5s ease-out 2.5s;
+  -moz-animation: logo 5s ease-out 2.5s;
+  -ms-animation: logo 5s ease-out 2.5s;
+  -o-animation: logo 5s ease-out 2.5s;
+  animation: logo 5s ease-out 2.5s;
+}
+
+.starwars h1 w {
+  margin-left: -.05em;
+  font-size: 1.1em;
+  overflow-wrap: normal;
+}
+
+.starwars h1 sub {
+  color: rgb(229, 177, 58);
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+  display: block;
+  font-size: 0.3em;
+  letter-spacing: 0;
+  line-height: 0.8em;
+  text-shadow: none;
+}
+
+.crawl {
+  color: rgb(229, 177, 58);
+}
+
+.crawl episode {
+  text-align: center;
+}
+
+.crawl h2 {
+  color: rgb(229, 177, 58);
+}
+
+.titles {
+  padding-left: 5em !important;
+  position: absolute;
+  width: 18em;
+  height: 50em;
+  bottom: 0;
+  font-size: 350%;
+  overflow: hidden;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transform: perspective(300px) rotateX(25deg);
+  -moz-transform: perspective(300px) rotateX(25deg);
+  -ms-transform: perspective(300px) rotateX(25deg);
+  -o-transform: perspective(300px) rotateX(25deg);
+  transform: perspective(300px) rotateX(25deg);
+}
+
+.titles:after
+{
+  position: absolute;
+  content: ' ';
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 60%;
+  padding-left: 5em !important;
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+  background-image: -o-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+  background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+
+.titlescontent {
+  position: absolute;
+  top: 100%;
+  -webkit-animation: scroll 80s linear 0.5s infinite;
+  -moz-animation: scroll 80s linear 0.5s infinite;
+  -ms-animation: scroll 80s linear 0.5s infinite;
+  -o-animation: scroll 80s linear 0.5s infinite;
+  animation: scroll 80s linear 0.5s infinite;
+}
+
+.crawl p {
+  text-align: justify;
+}
+
+/* animation */
+@-webkit-keyframes scroll {
+  0% { top: 100%; }
+  100% { top: -170%; }
+}
+
+@-moz-keyframes scroll {
+  0% { top: 100%; }
+  100% { top: -170%; }
+}
+
+@-ms-keyframes scroll {
+  0% { top: 100%; }
+  100% { top: -170%; }
+}
+
+@-o-keyframes scroll {
+  0% { top: 100%; }
+  100% { top: -170%; }
+}
+
+@keyframes scroll {
+  0% { top: 100%; }
+  100% { top: -170%; }
+}
+
+#hype_cycle {
+  background: #fff;
+}
+
+/*********************************************
+ * ZOOMOUT TRANSITION
+ *********************************************/
+
+.reveal .slides>section[data-transition=zoomout],
+.reveal.zoomout .slides>section {
+  -webkit-transition-timing-function: ease;
+     -moz-transition-timing-function: ease;
+      -ms-transition-timing-function: ease;
+       -o-transition-timing-function: ease;
+          transition-timing-function: ease;
+}
+
+.reveal .slides>section[data-transition=zoomout].future,
+.reveal.zoomout .slides>section.future {
+  opacity: 0;
+  visibility: hidden;
+
+  -webkit-transform: scale(16);
+     -moz-transform: scale(16);
+      -ms-transform: scale(16);
+       -o-transform: scale(16);
+          transform: scale(16);
+}
+.reveal .slides>section[data-transition=zoomout].past,
+.reveal.zoomout .slides>section.past {
+  opacity: 0;
+  visibility: hidden;
+
+  -webkit-transform: scale(0.2);
+     -moz-transform: scale(0.2);
+      -ms-transform: scale(0.2);
+       -o-transform: scale(0.2);
+          transform: scale(0.2);
+}
+
+.reveal .slides>section>section[data-transition=zoomout].future,
+.reveal.zoomout .slides>section>section.future {
+  -webkit-transform: translate(0, -150%);
+     -moz-transform: translate(0, -150%);
+      -ms-transform: translate(0, -150%);
+       -o-transform: translate(0, -150%);
+          transform: translate(0, -150%);
+}
+.reveal .slides>section>section[data-transition=zoomout].past,
+.reveal.zoomout .slides>section>section.past {
+  -webkit-transform: translate(0, 150%);
+     -moz-transform: translate(0, 150%);
+      -ms-transform: translate(0, 150%);
+       -o-transform: translate(0, 150%);
+          transform: translate(0, 150%);
+}
