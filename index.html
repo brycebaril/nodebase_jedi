@@ -100,19 +100,18 @@
 
         <section>
           <section class="starwars" data-background="img/bgstars.png">
-            <h2>NodeBases in 5 minutes</h2>
+            <h2>Path of the NodeBases Jedi</h2>
           </section>
 
           <section class="starwars" data-background="img/bgstars.png">
             <h2>NodeBases Goal:</h2>
-            <h3>Do for databases what NPM did for Node.js applications.</h3>
+            <h3>Do for databases what NPM did for web applications.</h3>
             <p>
               Small, composable pieces of functionality.
             </p>
-            <p>
-              Hundreds of modules already out there!
-            </p>
           </section>
+
+          <section data-background="img/bucket_index_label.jpg"></section>
 
           <section class="starwars" data-background="img/bgstars.png">
             <h2>LevelDB</h2>
@@ -155,7 +154,7 @@
             <li><a href="http://npm.im/level-lmdb">level-lmdb</a> LMDB</li>
             <li><a href="http://npm.im/level-rocksdb">level-rocksdb</a> RocksDB</li>
             <li><a href="http://npm.im/level-mem">level-mem</a> In-memory</li>
-            <li><a href="http://npm.im/level-js">level-js</a> Browserified</li>
+            <li><a href="http://npm.im/level-js">level-js</a> IndexedDB (browser)</li>
             </ul>
           </section>
 
@@ -226,22 +225,32 @@ things.put("wow", "mom", {version: 0}, function (err) {
         <section>
           <section class="starwars" data-background="img/bgstars.png">
             <h2>Case Study: TimestreamDB</h2>
-            <p><a href="http://npm.im/timestreamdb">timestreamdb</a> is a full time series database on top of LevelDB.</p>
-            <p>A full streaming time-based query language through <a href="http://npm.im/timestream">timestream</a></p>
+            <p><a href="http://npm.im/timestreamdb">timestreamdb</a> is a full time series database with a full Node streams-based query language.</p>
+          </section>
+
+          <section class="starwars" data-background="img/bgstars.png">
+            <h2>How Timestreamdb Works</h2>
+            <p>TimestreamDB itself is really simple, just 45 lines of code. All it actually does is combine <a href="http://npm.im/level-version">level-version</a> and <a href="http://npm.im/timestream">timestream</a></p>
+          </section>
+
+          <section class="starwars" data-background="img/bgstars.png">
+            <p>
+              Small, composable pieces of functionality.
+            </p>
           </section>
 
           <section class="starwars" data-background="img/bgstars.png">
             <h2>Because of NodeBases</h2>
-            <h3>Modularity FTW!</h3>
-            <p>Compatible (theoretically) with 100s of other db features</p>
+            <p>TimestreamDB is theoretically compatible with 100s of other features provided by other NodeBases modules.</p>
             <ul>
-            <li>browserifiable</li>
-            <li>namespacing</li>
-            <li>live streaming of changes</li>
-            <li>map-reduce</li>
-            <li>multilevel</li>
-            <li>secondary indexes</li>
-            <li>replication</li>
+            <li>browserifiable <a href="http://npm.im/level-js">level-js</a> (and others...)</li>
+            <li>namespacing <a href="http://npm.im/level-sublevel">level-sublevel</a> (and others...)</li>
+            <li>live streaming of changes <a href="http://npm.im/level-live-stream">level-live-stream</a></li>
+            <li>map-reduce <a href="http://npm.im/map-reduce">map-reduce</a></li>
+            <li>networked <a href="http://npm.im/multilevel">multilevel</a> (and others...)</li>
+            <li>foreign keys <a href="http://npm.im/level-assoc">level-assoc</a> (and others...)</li>
+            <li>replication <a href="http://npm.im/level-replicate">level-replicate</a> (and others...)</li>
+            <li>graph database <a href="http://npm.im/levelgraph">levelgraph</a></li>
             <li>etc...</li>
             </ul>
           </section>
@@ -296,7 +305,75 @@ count.join(avg).tail(function(r) {
           </section>
         </section>
 
+        <section data-background="img/rainbows.jpg">
+        </section>
+
+        <section id="epII" class="starwars crawl" data-background="img/bgstars.png" data-transition="none">
+          <div id="epII-titles"><div id="epII-content">
+            <episode>Episode II</episode>
+            <h2>ATTACK OF THE CODEROT</h2>
+            <p>&nbsp;</p>
+            <p>There is unrest in the NodeBases
+            Community. Several thousand node
+            developers have declared their
+            intentions to use Enterprise
+            Databases.</p>
+            <p>&nbsp;</p>
+
+            <p>This separatist movement,
+            under the leadership of the
+            mysterious Count Coderot, has
+            made it difficult for the limited
+            number of NodeBase Knights to
+            maintain compatibility and
+            order in NPM.</p>
+            <p>&nbsp;</p>
+
+            <p>Senator Vagg, the founder of
+            the NodeBases Community, is returning
+            to the NPM Senate to vote
+            on the critical issue of creating
+            and ARMY OF NODE DEVELOPERS
+            to assist with the overwhelmed
+            Jedi....</p>
+          </div></div>
+        </section>
+
         <section>
+          <section class="starwars" data-background="img/bgstars.png">
+            <h2>The Dark Side of NodeBases</h2>
+            <ul>
+              <li>Incomplete experiments</li>
+              <li>Competing efforts</li>
+              <li>Land rush</li>
+              <li>Over-promise</li>
+              <li>Combinatorial compatibility</li>
+              <li>Misleading replication story</li>
+            </ul>
+          </section>
+
+          <section class="starwars" data-background="img/bgstars.png">
+            <p>None of these things are evil or bad!</p>
+            <p>... but they can <strong>scare away potential users.</strong></p>
+          </section>
+
+          <section class="starwars" data-background="img/bgstars.png">
+            <h2>Help us realize the NodeBases potential</h2>
+            <ul>
+              <li>Use it, try it, push the limits!</li>
+              <li>Favor Science over Mad Science</li>
+              <li>Be a good citizen!
+                <ul>
+                  <li>Label project status</li>
+                  <li>Point to similar projects</li>
+                  <li>Use the modules you write!!!</li>
+                </ul>
+              </li>
+              <li>We need a <strong>rock-solid</strong> replication story</li>
+              <li>Published performance metrics</li>
+            </ul>
+          </section>
+
           <section class="starwars" data-background="img/bgstars.png">
             <h2>Hype Cycle</h2>
             <h3><a href="http://http://en.wikipedia.org/wiki/Hype_cycle">http://en.wikipedia.org/wiki/Hype_cycle</a></h3>
@@ -304,61 +381,11 @@ count.join(avg).tail(function(r) {
           </section>
         </section>
 
-        <section>
-
-          <section>
-            <ul>
-              <li>Use Nodey primitives
-                <ul>
-                  <li>Follow levelup's conventions: e.g. get(key, options, callback), streams</li>
-                  <li>Avoid promises</li>
-                  <li>Attempt to make your interface transparent</li>
-                </ul>
-              </li>
-              <li>Put complex behavior in separate modules</li>
-
-
-            </ul>
-          </section>
-
+        <section class="starwars" data-background="img/bgstars.png">
+          <h2>Thank you!</h2>
+          <p><a href="http://twitter.com/brycebaril">@brycebaril</a></p>
+          <p>Also... check out <a href="http://concurix.com/jsfest">concurix.com/jsfest</a> we're working on a monitoring profiler for Node.js... that link will save you $50</p>
         </section>
-
-
-        <section>
-
-          <section id="epII" class="starwars crawl" data-background="img/bgstars.png" data-transition="none">
-            <div id="epII-titles"><div id="epII-content">
-              <episode>Episode II</episode>
-              <h2>ATTACK OF THE CODEROT</h2>
-              <p>&nbsp;</p>
-              <p>There is unrest in the NodeBases
-              Community. Several thousand node
-              developers have declared their
-              intentions to use Enterprise
-              Databases.</p>
-              <p>&nbsp;</p>
-
-              <p>This separatist movement,
-              under the leadership of the
-              mysterious Count Coderot, has
-              made it difficult for the limited
-              number of NodeBase Knights to
-              maintain compatability and
-              order in NPM.</p>
-              <p>&nbsp;</p>
-
-              <p>Senator Vagg, the founder of
-              the NodeBases Community, is returning
-              to the NPM Senate to vote
-              on the critical issue of creating
-              and ARMY OF NODE DEVELOPERS
-              to assist with the overwhelmed
-              Jedi....</p>
-            </div></div>
-          </section>
-
-        </section>
-
 
       </div>
 
